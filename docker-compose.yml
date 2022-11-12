@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  centos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./src:/usr/local/src"
+    working_dir: /usr/local/src
+    tty: true
