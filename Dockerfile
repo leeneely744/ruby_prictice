@@ -1,13 +1,5 @@
-FROM ruby:2.5-alpine
+FROM centos:centos7
 
-RUN apk update && apk --update add \
-build-base \
-nodejs \
-tzdata
+RUN yum -y update && yum install -y  ruby
 
-WORKDIR /usr/src/app
-
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
-COPY . .
+COPY src/ /opt/
